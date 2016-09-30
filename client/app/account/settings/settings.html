@@ -1,0 +1,30 @@
+<div class="content">
+ <div class="container-fluid">
+    <div class="page-header">
+     <h2>Configuración</h2>
+   </div>
+   <div class="row">
+     <nav class="col-sm-3 col-md-3">
+       <ul class="nav nav-pills nav-stacked">
+         <li ui-sref-active="active">
+           <a ui-sref="settings.profile">Editar perfil</a>
+         </li>
+         <li ui-sref-active="active">
+           <a ui-sref="settings.picture">Cambiar Imagen de Perfil</a>
+         </li>
+         <li ui-sref-active="active" >
+           <a ui-sref="settings.password">Cambiar Contraseña</a>
+         </li>
+         <li ui-sref-active="active">
+           <a ui-sref="settings.accounts">Manage Social Accounts</a>
+         </li>
+       </ul>
+     </nav>
+     <div class="col-sm-9 col-md-8 settings-view">
+       <div ui-view></div>
+     </div>
+   </div>
+ </div>
+
+
+

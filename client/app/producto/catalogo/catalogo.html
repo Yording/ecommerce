@@ -1,0 +1,49 @@
+<div class="container-fluid" id="catalog">
+	
+	<div class="container-buttons" affix="top" affix-class="affix">
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored btn-cart"  ng-click="openShoppingCart()">
+				<div class="material-icons mdl-badge mdl-badge--overlap" data-badge="{{totalItems}}">shopping_cart</div>
+		</button>
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored btn-search" tabindex='1' ng-click="search()">
+			<div class='mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored search'></div>
+			<i class="material-icons icon-search">search</i>
+		</button>
+	</div>
+	<div ng-click="closeSearch()">
+		<i class='icon-close material-icons'>close</i>
+	</div>
+    
+	<div class='form-search'>
+	  	<input class='input-search' placeholder='Ingresar Busqueda' type='text' key-escape="closeSearch()" key-enter="filter('',busqueda)" ng-model="busqueda">
+	  	<i class="material-icons form-icon-search" ng-click="filter('',busqueda)">search</i>
+	</div>
+	<div class="row"  masonry preserve-order>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 masonry-brick item-product clearfix" ng-repeat="product in products |filter:{name:query.name} | filter:{tags:query.tag}">
+			<div class="mdl-card mdl-shadow--4dp item"  id="{{product._id}}">
+			  <div class="mdl-card__media"><img ng-src="{{product.imageProduct}}" >
+			  </div>
+			  <div class="mdl-card__supporting-text">
+			  	<div class="mdl-card__title-text">{{product.name}}</div>
+			     {{product.description}}
+			  </div>
+			  	<ul class="item-tags">
+			  		 <li ng-repeat="tag in product.tags"><a  class="tag"  ng-click="filter(tag,'')">{{tag}}</a></li>
+			  	</ul>
+			  <h5 class="item-price">{{product.saleprice | currency:"$"}}</h5>
+			  <div class="mdl-card__actions mdl-card--border">
+			  	
+    		    <ngcart-addtocart id="{{product._id}}" name="{{product.name}}" price="{{product.saleprice}}" quantity="1" quantity-max="5"></ngcart-addtocart>
+                <div class="mdl-layout-spacer"></div>
+                <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">favorite</i></button>
+                <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">visibility</i></button>
+      		  </div>
+			</div>
+		</div> 
+
+	</div>
+</div>
+<footer></footer>
+
+
+
+

@@ -1,0 +1,64 @@
+<div class="modal-header">
+  <button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
+  <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
+</div>
+<div class="modal-body">
+  <form id="productoForm" >
+
+              <!-- Imagen -->
+              <img  class="img-thumbnail image-product" alt="modal.product.name || 'default'" ngf-thumbnail="modal.product.imageProduct || defaultImageProduct">
+              <div class="form-group">
+                 <span class="btn btn-default searchImage">
+                    Seleccionar Imagen <input type="file" ngf-select ng-model="modal.product.imageProduct" name="file"    
+             accept="image/*" ngf-max-size="2MB" required
+             ngf-model-invalid="errorFiles">
+                </span>
+              </div>
+              <br>
+
+              <!-- Nombre producto -->
+              <div class="form-group">
+                   <label for="title">Nombre Producto</label>
+                  <input ng-model="modal.product.name" id="name" class="form-control" type="text" placeholder="Nombre producto">
+              </div>
+              
+              <!-- descripcion del producto -->
+              <div class="form-group">
+                  <label for="descripcion">Descripción</label>
+                  <textarea ng-model="modal.product.description" id="description" class="form-control" type="text" placeholder="Descripción"></textarea>
+             </div>
+
+              <!-- precio final -->
+              <div class="form-group">
+                  <label for="preciofinal">Precio de Venta</label>
+                  <div class="input-group">
+                      <div class="input-group-addon">
+                          <i class="glyphicon glyphicon-usd"></i>
+                     </div>
+                     <input ng-model="modal.product.saleprice" id="saleprice" class="form-control" type="number" placeholder="Ingrese Valor">
+                  </div>
+              </div>
+
+              <!-- cantidad -->
+              <div class="form-group">
+                 <label for="cantidad">Cantidad</label>
+                 <input ng-model="modal.product.amount" id="amount" class="form-control" type="number" placeholder="Ingrese Valor">
+              </div>
+
+              <!-- Tags -->
+              <div class="form-group">
+                  <label for="tags">Tags</label>
+                  <ui-select multiple tagging tagging-label="false" ng-model="modal.product.tags" theme="bootstrap" ng-disabled="disabled"  title="Eligir tag">
+                        <ui-select-match placeholder="Select tags...">{{$item}}</ui-select-match>
+                        <ui-select-choices repeat="tag in availableTags | filter:$select.search">
+                          {{tag}}
+                        </ui-select-choices>
+                  </ui-select>
+              </div>
+
+
+          </form>
+</div>
+<div class="modal-footer">
+  <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click($event)" ng-bind="button.text" class="btn"></button>
+</div>

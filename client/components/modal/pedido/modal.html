@@ -1,0 +1,72 @@
+<div class="modal-header">
+  <button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
+  <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
+</div>
+<div class="modal-body">
+  <form id="pedidoForm" >
+
+    <!-- Cliente -->
+    <div class="form-group">
+      <label for="cliente">Cliente</label>
+      <input ng-model="modal.order.client" id="client" class="form-control" type="text">
+    </div>
+
+    <!-- Fecha de pedido -->
+    <div class="form-group">
+      <label for="orderDate">Fecha de pedido</label>
+      <!-- <input ng-model="modal.order.orderDate | date : 'yyyy-MM-dd'" id="orderDate" class="form-control" type="date"> -->
+      <input ng-model="modal.order.orderDate" id="orderDate" class="form-control" type="text">
+    </div>
+
+    <!-- Fecha de entrega -->
+    <div class="form-group">
+      <label for="deliverDate">Fecha de entrega</label>
+      <!-- <input ng-model="modal.order.deliverDate | date : 'yyyy-MM-dd'" id="deliverDate" class="form-control" type="date"> -->
+      <input ng-model="modal.order.deliverDate" id="deliverDate" class="form-control" type="text">
+    </div>
+
+    <!-- Dirección de entrega -->
+    <div class="form-group">
+      <label for="deliverAddress">Dirección de entrega</label>
+      <textarea ng-model="modal.order.deliverAddress" id="deliverAddress" class="form-control" type="text"></textarea>
+    </div>
+
+    <!-- Estado de la orden -->
+    <div class="form-group">
+      <label for="orderState">Estado de la orden</label>
+      <input ng-model="modal.order.orderState" id="orderState" class="form-control" type="text">
+    </div>
+
+    <!-- Estado de la factura -->
+    <div class="form-group">
+      <label for="billState">Estado de la orden</label>
+      <input ng-model="modal.order.billState" id="billState" class="form-control" type="text">
+    </div>
+
+    <!-- Detalle -->
+    <div class="form-group">
+      <label for="detail">Detalle</label>
+      <table>
+        <tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Valor total</th></tr>
+        <tr ng-repeat="pdt in modal.order.detail">
+          <td>{{pdt.product.name}}</td>
+          <td>{{pdt.salePrice}}</td>
+          <td>{{pdt.amount}}</td>
+          <td>{{pdt.total}}</td>
+        </tr>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Gran total</th>
+                <th>{{modal.order.total}}</th>
+            </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click($event)" ng-bind="button.text" class="btn"></button>
+</div>

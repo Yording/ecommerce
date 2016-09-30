@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <!-- <form id="pedidoForm">
+      <div class="form-group">
+        <label for="client"></label>
+        <input type="text" id="cliente" ng-model="pedido.client" class="form-control" placeholder="Nombre cliente">
+
+        <label for="deliverDate"></label>
+        <input type="text" id="deliverDate" ng-model="pedido.deliverDate" class="form-control" placeholder="Fecha de entrega">
+
+        <label for="deliverAddress"></label>
+        <input type="text" id="deliverAddress" ng-model="pedido.deliverAddress" class="form-control" placeholder="Direccion de entrega">
+
+        <label for="orderState"></label>
+        <input type="text" id="orderState" ng-model="pedido.orderState" class="form-control" placeholder="Estado de la orden">
+
+        <label for="billState"></label>
+        <input type="text" id="billState" ng-model="pedido.billState" class="form-control" placeholder="Estado de la factura">
+
+        <div class="col-lg-12">
+
+          <label>Detalle:</label>
+            <table>
+              <tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Valor total</th></tr>
+              <tr ng-repeat="pdt in pedido.detail">
+                <td>{{pdt.product}}</td>
+                <td>{{pdt.salePrice}}</td>
+                <td>{{pdt.amount}}</td>
+                <td>{{pdt.total}}</td>
+              </tr>
+              <tfoot>
+                  <tr>
+                      <th></th>
+                      <th></th>
+                      <th>Gran total</th>
+                      <th>{{total}}</th>
+                  </tr>
+              </tfoot>
+            </table>
+        </div>
+      </div>
+      <button type="submit" calss="btn btn-success" ng-click="addPedido()">Agregar</button>
+      <button type="submit" calss="btn btn-success" ng-click="updatePedido()">Actualizar</button>
+    </form> -->
+    <div>
+      <h4>Pedidos</h4>
+      <div id="grdPedidos" ui-grid="gridPedidos" ui-grid-cellNav ui-grid-edit ui-grid-resize-columns ui-grid-pinning ui-grid-selection ui-grid-move-columns ui-grid-importer ui-grid-exporter ui-grid-grouping class="grid"></div>
+    </div>
+  </div>
+  <footer></footer>
+

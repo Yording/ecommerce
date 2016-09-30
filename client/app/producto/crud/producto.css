@@ -1,0 +1,33 @@
+.image-product{
+	width: 150px;
+	height: 150px;
+}
+
+/*UI GRID*/
+.myGrid {
+    width: auto;
+    height: 350px;
+}
+.ui-grid-menu-button {
+  height: 31px;
+  z-index: 999;
+}
+.my-custom-menu {
+  position: absolute;
+}
+ 
+.my-custom-menu .ui-grid-menu {
+  padding: 0px;
+}
+ 
+.my-custom-menu .ui-grid-menu-inner {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*ui grid botones*/
+.btn-product{
+  z-index: 999;
+  top:-2%;
+  right: 2%;
+  position: absolute;
+}
